@@ -16,12 +16,30 @@
   }
 }
 
+@font-face {
+  font-family: "sohne-light";
+  src: url("/fonts/sohne/sohne300.otf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sohne-regular";
+  src: url("/fonts/sohne/sohne400.otf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sohne-medium";
+  src: url("/fonts/sohne/sohne500.otf");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "sohne-bold";
+  src: url("/fonts/sohne/sohne600.otf");
+  font-style: normal;
+}
+
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "sohne-light", sans-serif;
 }

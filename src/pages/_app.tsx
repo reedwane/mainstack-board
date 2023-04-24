@@ -1,7 +1,8 @@
-import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useState } from "react";
 import Layout from "@/components/Layout";
+
+import "@/styles/globals.css";
 
 import {
   Hydrate,

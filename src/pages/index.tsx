@@ -27,8 +27,6 @@ export default function Home() {
     queryFn: getData,
   });
 
-  console.log({ data, isLoading, isError });
-
   return (
     <div className="">
       <h2 className="text-[24px] leading-[32px] font-customBold mb-[10px]">

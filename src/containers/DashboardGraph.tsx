@@ -3,6 +3,7 @@ import { format } from "date-fns";
 import PageViews from "@/components/PageViews";
 import TopLocations from "@/components/TopLocations";
 import styled from "styled-components";
+import TopSources from "@/components/TopSources";
 
 interface IDashboardGraphProps {
   data: any;
@@ -26,13 +27,17 @@ const DashboardGraph: React.FunctionComponent<IDashboardGraphProps> = ({
     <div className="flex flex-col gap-6 pt-[32px] pb-[22px] px-6">
       <PageViews data={processedData} />
 
-      <div className="flex items-center gap-4">
+      <div className="flex  gap-4 flex-wrap">
         <ReportWrapper>
-          <TopLocations data={top_locations} />
+          <TopLocations
+            data={top_locations.sort((a: any, b: any) => b?.count - a?.count)}
+          />
         </ReportWrapper>
 
         <ReportWrapper>
-          <TopLocations data={top_sources} />
+          <TopSources
+            data={top_sources.sort((a: any, b: any) => b?.count - a?.count)}
+          />
         </ReportWrapper>
       </div>
     </div>

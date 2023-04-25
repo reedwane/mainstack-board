@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ReactSVG as SVG } from "react-svg";
+import styled from "styled-components";
 
 interface NavLinkProps {
   url: string;
@@ -9,13 +10,19 @@ interface NavLinkProps {
 
 export const NavLink: React.FC<NavLinkProps> = ({ url, label, icon }) => {
   return (
-    <li>
-      <Link
-        href={url}
-        className="flex items-center gap-4 font-customMed hover:text-[#FF5403]"
-      >
-        <SVG src={icon} className="hover:fill-[#FF5403]" /> {label}
+    <LinkWrapper>
+      <Link href={url} className="flex items-center gap-4 font-customMed">
+        <SVG src={icon} /> {label}
       </Link>
-    </li>
+    </LinkWrapper>
   );
 };
+
+export const LinkWrapper = styled.li`
+  &:hover {
+    color: #ff5403;
+    * {
+      fill: #ff5403;
+    }
+  }
+`;

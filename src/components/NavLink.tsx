@@ -34,8 +34,8 @@ export const LinkWrapper = styled.li<LinkWrapperProps>`
     fill: ${(props) => (props.active ? "#ff5403" : "unset")};
   }
   &:hover {
-    color: #ff5403;
     * {
+      color: #ff5403;
       fill: #ff5403;
     }
   }

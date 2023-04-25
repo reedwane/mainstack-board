@@ -22,11 +22,11 @@ export const ReportWrapper = ({
       </div>
 
       <div className="w-full flex items-start justify-between gap-1">
-        <div className="w-[50%]">
+        <div className="w-[50%] min-w-[170px] ">
           {data.map((entry: any, idx: number) => (
             <p
               key={`entry-${idx}`}
-              className="flex items-center gap-2 my-2.5 leading-[24px] capitalize w-full min-w-[170px] flex-wrap"
+              className="flex items-center gap-2 my-2.5 leading-[24px] capitalize w-full flex-wrap"
             >
               {entry?.[targetLabel]}{" "}
               <span className="font-customMed">{entry?.percent}%</span>{" "}

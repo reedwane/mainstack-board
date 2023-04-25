@@ -71,27 +71,9 @@ const PageViews: React.FunctionComponent<IPageViewsProps> = ({ data }) => {
     "Custom Date",
   ];
 
-  const OptionButton = styled.button<any>`
-    border-radius: 100px;
-    height: 40px;
-    border: 1px solid #eff1f6;
-    padding: 12px 16px 12px;
-    display: inline-flex;
-    align-items: center;
-    color: ${(props) => (props.selected ? "#ff5403" : "black")};
-    background-color: ${(props) => (props.selected ? "#ffeee5" : "white")};
-    border-color: ${(props) => (props.selected ? "#ff5403" : "#eff1f6")};
-
-    &:hover {
-      color: #ff5403;
-      background-color: #ffeee5;
-      border-color: #ff5403;
-    }
-  `;
-
   return (
     <section className="">
-      <div className="flex items-center gap-3 mt-6">
+      <div className="flex items-center gap-3 mt-6 flex-wrap">
         {options.map((option: string, idx: number) => (
           <OptionButton
             key={"option-" + idx}
@@ -150,5 +132,24 @@ const PageViews: React.FunctionComponent<IPageViewsProps> = ({ data }) => {
     </section>
   );
 };
+
+const OptionButton = styled.button<any>`
+  border-radius: 100px;
+  height: 40px;
+  min-width: 74px;
+  border: 1px solid #eff1f6;
+  padding: 12px 16px 12px;
+  display: inline-flex;
+  align-items: center;
+  color: ${(props) => (props.selected ? "#ff5403" : "black")};
+  background-color: ${(props) => (props.selected ? "#ffeee5" : "white")};
+  border-color: ${(props) => (props.selected ? "#ff5403" : "#eff1f6")};
+
+  &:hover {
+    color: #ff5403;
+    background-color: #ffeee5;
+    border-color: #ff5403;
+  }
+`;
 
 export default PageViews;

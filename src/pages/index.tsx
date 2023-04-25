@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <div className="">
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between flex-wrap">
         <div>
           <h2 className="text-[24px] leading-[32px] font-customBold mb-[10px]">
             Good morning, Blessing ⛅️

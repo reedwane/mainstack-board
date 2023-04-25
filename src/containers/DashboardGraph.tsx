@@ -25,7 +25,7 @@ const DashboardGraph: React.FunctionComponent<IDashboardGraphProps> = ({
     <div className="flex flex-col gap-6 pt-[32px] pb-[22px] px-6">
       <PageViews data={processedData} />
 
-      <div className="flex  gap-4 flex-wrap">
+      <div className="flex gap-4 flex-wrap">
         <ReportWrapper>
           <TopLocations
             data={top_locations.sort((a: any, b: any) => b?.count - a?.count)}

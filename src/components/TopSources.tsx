@@ -60,31 +60,6 @@ const TopSources: React.FunctionComponent<ITopSourcesProps> = ({ data }) => {
           </PieChart>
         </ResponsiveContainer>
       </ReportWrapper>
-      {/* <div className={`w-full p-6`}>
-        <div className="w-full flex justify-between items-center">
-          <h3 className="text-[18px] font-customMed text-[#131316]">
-            Top Referral source
-          </h3>
-          <Link href={"#!"} className="text-[14px] text-[#FF5403]">
-            View full reports
-          </Link>
-        </div>
-
-        <div className="flex items-start justify-between gap-1">
-          <div className="">
-            {data.map((entry: any, idx: number) => (
-              <p
-                key={`entry-${idx}`}
-                className="flex items-center gap-2 my-2.5 leading-[24px] capitalize"
-              >
-                {entry?.source}{" "}
-                <span className="font-customMed">{entry?.percent}%</span>{" "}
-                <ColorBg colorBg={COLORS[idx]} />
-              </p>
-            ))}
-          </div>
-        </div>
-      </div> */}
     </>
   );
 };

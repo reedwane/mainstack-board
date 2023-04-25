@@ -2,6 +2,7 @@ import axios from "axios";
 
 import { dehydrate, QueryClient, useQuery } from "@tanstack/react-query";
 import DashboardGraph from "@/containers/DashboardGraph";
+import Link from "next/link";
 
 export const getData = async () => {
   const response = await axios.get("https://fe-task-api.mainstack.io/");
@@ -29,13 +30,20 @@ export default function Home() {
 
   return (
     <div className="">
-      <h2 className="text-[24px] leading-[32px] font-customBold mb-[10px]">
-        Good morning, Blessing ⛅️
-      </h2>
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-[24px] leading-[32px] font-customBold mb-[10px]">
+            Good morning, Blessing ⛅️
+          </h2>
 
-      <p className="text-[14px] text-[#31373D]">
-        Check out your dashboard summary.
-      </p>
+          <p className="text-[14px] text-[#31373D]">
+            Check out your dashboard summary.
+          </p>
+        </div>
+        <Link href={"#!"} className=" text-[14px] text-[#FF5403]">
+          View analytics
+        </Link>
+      </div>
 
       {isLoading ? (
         "Loading..."

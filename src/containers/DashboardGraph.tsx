@@ -21,8 +21,6 @@ const DashboardGraph: React.FunctionComponent<IDashboardGraphProps> = ({
     value,
   }));
 
-  console.log(top_locations, top_sources);
-
   return (
     <div className="flex flex-col gap-6 pt-[32px] pb-[22px] px-6">
       <PageViews data={processedData} />

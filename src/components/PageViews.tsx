@@ -1,4 +1,5 @@
 import * as React from "react";
+import { ReactSVG as SVG } from "react-svg";
 import {
   AreaChart,
   XAxis,
@@ -8,6 +9,7 @@ import {
   Area,
   ResponsiveContainer,
 } from "recharts";
+import styled from "styled-components";
 
 interface IPageViewsProps {
   data: any;
@@ -56,13 +58,59 @@ const PageViews: React.FunctionComponent<IPageViewsProps> = ({ data }) => {
       </g>
     );
   };
+
+  const allTimeValue = data.reduce((acc: number, b: any) => acc + b.value, 0);
+
+  const [selectedOption, setSelectedOption] = React.useState(4);
+  const options = [
+    "1 Day",
+    "3 Days",
+    "7 Days",
+    "30 Days",
+    "All Time",
+    "Custom Date",
+  ];
+
+  const OptionButton = styled.button<any>`
+    border-radius: 100px;
+    height: 40px;
+    border: 1px solid #eff1f6;
+    padding: 12px 16px 12px;
+    display: inline-flex;
+    align-items: center;
+    color: ${(props) => (props.selected ? "#ff5403" : "black")};
+    background-color: ${(props) => (props.selected ? "#ffeee5" : "white")};
+    border-color: ${(props) => (props.selected ? "#ff5403" : "#eff1f6")};
+
+    &:hover {
+      color: #ff5403;
+      background-color: #ffeee5;
+      border-color: #ff5403;
+    }
+  `;
+
   return (
-    <section>
-      <h3 className="text-[18px] leading-[24px] font-customMed">Page Views</h3>
+    <section className="">
+      <div className="flex items-center gap-3 mt-6">
+        {options.map((option: string, idx: number) => (
+          <OptionButton
+            key={"option-" + idx}
+            className="font-customMed text-[14px]"
+            selected={selectedOption === idx}
+          >
+            {option}
+          </OptionButton>
+        ))}
+      </div>
+      <h3 className="text-[18px] leading-[24px] font-customMed mt-6 mb-2 flex items-center justify-between">
+        Page Views <SVG src={"/icons/info.svg"} className="cursor-pointer" />
+      </h3>
 
       <p className="text-[14px]">All time</p>
 
-      <p className="font-customBold text-[48px] leading-[57.6px]">500</p>
+      <p className="font-customBold text-[48px] leading-[57.6px] mt-6">
+        {allTimeValue}
+      </p>
 
       <ResponsiveContainer height={324} className="text-[14px] text-[#56616B]">
         <AreaChart data={data} margin={{ top: 30, left: -30, bottom: 0 }}>

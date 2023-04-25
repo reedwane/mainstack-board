@@ -1,17 +1,19 @@
 import { navConfig } from "@/providers/sidenav";
+import { ReactSVG as SVG } from "react-svg";
 import Image from "next/image";
 import { NavLink } from "./NavLink";
+import { useState } from "react";
 
 interface ISideNavProps {
   styles?: string;
 }
 
 const SideNav: React.FunctionComponent<ISideNavProps> = ({ styles }) => {
+  const [active, setActive] = useState<string>(navConfig[0].links[0].label);
+
   return (
     <nav
-      className={`flex flex-col h-screen px-[60.74px] py-[38.75px] gap-[50.7px] ${
-        styles ? styles : ""
-      }`}
+      className={`flex flex-col px-[60.74px] py-[38.75px] gap-[50.7px] overflow-y-auto`}
     >
       <div className="relative w-[40px] h-[40px]">
         <Image src={"/mainstack-logo.png"} fill alt="mainstack-logo" />
@@ -28,22 +30,23 @@ const SideNav: React.FunctionComponent<ISideNavProps> = ({ styles }) => {
                 url={link.url}
                 label={link.label}
                 icon={link.icon}
+                active={active}
               />
             ))}
           </div>
         ))}
       </ul>
 
-      <div className="mt-auto flex items-center justify-between">
+      <div className="mt-auto flex items-center justify-between  cursor-pointer hover:text-[#ff5403]">
         <div className="relative w-[32px] h-[32px] rounded-full overflow-hidden">
           <Image src={"/blessing.png"} fill alt="blessing" />
         </div>
 
-        <p className="text-[15px] font-customMed text-[#56616B]">
+        <p className="text-[15px] font-customMed text-[#56616B] hover:text-[#ff5403]">
           Blessing Daniels
         </p>
 
-        <p>...</p>
+        <SVG src={"/icons/more.svg"} />
       </div>
     </nav>
   );

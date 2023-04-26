@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ColorBg } from "./CircleColorBg";
+import SourceIcon from "./SourceIcon";
 
 export const ReportWrapper = ({
   children,
@@ -22,12 +23,13 @@ export const ReportWrapper = ({
       </div>
 
       <div className="w-full flex flex-col sm:flex-row items-start justify-between gap-1">
-        <div className="w-[50%] min-w-[170px] ">
+        <div className="sm:w-[50%] min-w-[170px] ">
           {data.map((entry: any, idx: number) => (
             <p
               key={`entry-${idx}`}
               className="flex items-center gap-2 my-2.5 leading-[24px] capitalize w-full flex-wrap"
             >
+              <SourceIcon label={entry?.[targetLabel]?.toLowerCase()} />
               {entry?.[targetLabel]}{" "}
               <span className="font-customMed">{entry?.percent}%</span>{" "}
               <ColorBg colorBg={COLORS[idx]} />

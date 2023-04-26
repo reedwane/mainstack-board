@@ -1,12 +1,5 @@
 import { useState } from "react";
-import {
-  PieChart,
-  Pie,
-  Sector,
-  Cell,
-  ResponsiveContainer,
-  Tooltip,
-} from "recharts";
+import { PieChart, Pie, Cell, Tooltip } from "recharts";
 import { ReportWrapper } from "./ReportWrapper";
 
 interface ITopLocationsProps {

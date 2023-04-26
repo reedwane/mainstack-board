@@ -27,7 +27,7 @@ const TopSources: React.FunctionComponent<ITopSourcesProps> = ({ data }) => {
         targetLabel="source"
         data={data}
       >
-        <ResponsiveContainer minWidth={160} minHeight={160}>
+        <ResponsiveContainer height={160} width={160}>
           <PieChart width={160} height={160}>
             <Tooltip
               formatter={(value, name, props) => {

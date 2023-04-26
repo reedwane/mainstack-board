@@ -12,7 +12,7 @@ export const ReportWrapper = ({
 
   return (
     <div className={`w-full p-6`}>
-      <div className="w-full flex justify-between items-center">
+      <div className="w-full flex justify-between items-center mb-[24px] md:mb-[42px]">
         <h3 className="text-[18px] font-customMed text-[#131316]">
           {reportType}
         </h3>
@@ -21,7 +21,7 @@ export const ReportWrapper = ({
         </Link>
       </div>
 
-      <div className="w-full flex flex-col md:flex-row items-start justify-between gap-1">
+      <div className="w-full flex flex-col flex-wrap sm:flex-row items-start justify-between gap-1">
         <div className="w-[50%] min-w-[170px] ">
           {data.map((entry: any, idx: number) => (
             <p

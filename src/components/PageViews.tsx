@@ -84,51 +84,65 @@ const PageViews: React.FunctionComponent<IPageViewsProps> = ({ data }) => {
           </OptionButton>
         ))}
       </div>
-      <h3 className="text-[18px] leading-[24px] font-customMed mt-6 mb-2 flex items-center justify-between">
-        Page Views <SVG src={"/icons/info.svg"} className="cursor-pointer" />
-      </h3>
 
-      <p className="text-[14px]">All time</p>
+      <div className="border-[#EFF1F6] border-[1px] rounded-[12px] pt-[32px] px-[24px] pb-[22px] mt-6">
+        <h3 className="text-[18px] leading-[24px] font-customMed mb-2 flex items-center justify-between">
+          Page Views <SVG src={"/icons/info.svg"} className="cursor-pointer" />
+        </h3>
 
-      <p className="font-customBold text-[48px] leading-[57.6px] mt-6">
-        {allTimeValue}
-      </p>
+        <p className="text-[14px]">All time</p>
 
-      <ResponsiveContainer height={324} className="text-[14px] text-[#56616B]">
-        <AreaChart data={data} margin={{ top: 30, left: -30, bottom: 0 }}>
-          <defs>
-            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="rgb(255, 84, 3)" stopOpacity={0.2} />
-              <stop offset="95%" stopColor="rgb(255, 84, 3)" stopOpacity={0} />
-            </linearGradient>
-          </defs>
+        <p className="font-customBold text-[48px] leading-[57.6px] mt-6">
+          {allTimeValue}
+        </p>
 
-          <XAxis
-            dataKey="date"
-            padding={{ left: 30, right: 30 }}
-            tick={<CustomXAxisTick />}
-            stroke="none"
-          />
-          <YAxis
-            padding={{ top: 30, bottom: 30 }}
-            tick={<CustomYAxisTick />}
-            label={<CustomYAxisLabel />}
-            stroke="none"
-          />
+        <ResponsiveContainer
+          height={324}
+          className="text-[14px] text-[#56616B]"
+        >
+          <AreaChart data={data} margin={{ top: 30, left: -30, bottom: 0 }}>
+            <defs>
+              <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                <stop
+                  offset="5%"
+                  stopColor="rgb(255, 84, 3)"
+                  stopOpacity={0.2}
+                />
+                <stop
+                  offset="95%"
+                  stopColor="rgb(255, 84, 3)"
+                  stopOpacity={0}
+                />
+              </linearGradient>
+            </defs>
 
-          <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <Tooltip />
+            <XAxis
+              dataKey="date"
+              padding={{ left: 30, right: 30 }}
+              tick={<CustomXAxisTick />}
+              stroke="none"
+            />
+            <YAxis
+              padding={{ top: 30, bottom: 30 }}
+              tick={<CustomYAxisTick />}
+              label={<CustomYAxisLabel />}
+              stroke="none"
+            />
 
-          <Area
-            type="linear"
-            dataKey="value"
-            stroke="#FF5403"
-            dot={false}
-            fillOpacity={1}
-            fill="url(#colorPv)"
-          />
-        </AreaChart>
-      </ResponsiveContainer>
+            <CartesianGrid strokeDasharray="3 3" vertical={false} />
+            <Tooltip />
+
+            <Area
+              type="linear"
+              dataKey="value"
+              stroke="#FF5403"
+              dot={false}
+              fillOpacity={1}
+              fill="url(#colorPv)"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
     </section>
   );
 };

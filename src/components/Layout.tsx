@@ -20,7 +20,7 @@ const Layout: React.FunctionComponent<ILayoutProps> = ({ children }) => {
       <div
         className={`${
           openNav ? "block" : "hidden"
-        } md:block absolute z-[3] md:relative w-[30%] min-w-[250px] xl:max-w-[304px] h-full overflow-y-auto border-r-[1px] border-[#EFF1F6] bg-white`}
+        } md:block absolute z-[3] md:relative w-[30%] min-w-[250px] xl:max-w-[304px] h-screen md:h-full overflow-y-auto border-r-[1px] border-[#EFF1F6] bg-white`}
       >
         <SideNav />
       </div>

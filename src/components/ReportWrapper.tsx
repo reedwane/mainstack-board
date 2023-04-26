@@ -21,7 +21,7 @@ export const ReportWrapper = ({
         </Link>
       </div>
 
-      <div className="w-full flex items-start justify-between gap-1">
+      <div className="w-full flex flex-col md:flex-row items-start justify-between gap-1">
         <div className="w-[50%] min-w-[170px] ">
           {data.map((entry: any, idx: number) => (
             <p

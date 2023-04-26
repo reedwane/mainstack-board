@@ -16,6 +16,7 @@ const Layout: React.FunctionComponent<ILayoutProps> = ({ children }) => {
           openNav ? "block" : "hidden"
         } md:hidden z-[2] bg-[#eff1f674] absolute w-screen h-screen`}
       />
+
       <div
         className={`${
           openNav ? "block" : "hidden"
@@ -29,7 +30,7 @@ const Layout: React.FunctionComponent<ILayoutProps> = ({ children }) => {
           <Header openNav={openNav} setOpenNav={setOpenNav} />
         </div>
 
-        <main className="px-8 py-6 xl:px-[60px]">{children}</main>
+        <main className="px-4 py-6 xl:px-[60px]">{children}</main>
       </div>
     </div>
   );

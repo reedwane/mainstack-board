@@ -43,7 +43,12 @@ const DashboardGraph: React.FunctionComponent<IDashboardGraphProps> = ({
 };
 
 const ReportWrapper = styled.div`
-  width: 49%;
+  border: 1px solid #eff1f6;
+  border-radius: 12px;
+  width: 100%;
+  @media screen and (min-width: 991px) {
+    width: 49%;
+  }
 `;
 
 export default DashboardGraph;

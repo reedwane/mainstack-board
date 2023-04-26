@@ -1,9 +1,8 @@
 import * as React from "react";
 import { format } from "date-fns";
 import PageViews from "@/components/PageViews";
-import TopLocations from "@/components/TopLocations";
 import styled from "styled-components";
-import TopSources from "@/components/TopSources";
+import dynamic from "next/dynamic";
 
 interface IDashboardGraphProps {
   data: any;
@@ -12,6 +11,14 @@ interface IDashboardGraphProps {
 const DashboardGraph: React.FunctionComponent<IDashboardGraphProps> = ({
   data,
 }) => {
+  const NoSSRLocations = dynamic(import("@/components/TopLocations"), {
+    ssr: false,
+  });
+
+  const NoSSRSources = dynamic(import("@/components/TopSources"), {
+    ssr: false,
+  });
+
   const { graph_data, top_locations, top_sources } = data || {};
 
   const areaDataMap = new Map(Object.entries(graph_data.views));
@@ -27,13 +34,13 @@ const DashboardGraph: React.FunctionComponent<IDashboardGraphProps> = ({
 
       <div className="flex justify-between gap-4 flex-wrap">
         <ReportWrapper>
-          <TopLocations
+          <NoSSRLocations
             data={top_locations.sort((a: any, b: any) => b?.count - a?.count)}
           />
         </ReportWrapper>
 
         <ReportWrapper>
-          <TopSources
+          <NoSSRSources
             data={top_sources.sort((a: any, b: any) => b?.count - a?.count)}
           />
         </ReportWrapper>

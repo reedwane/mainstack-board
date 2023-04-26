@@ -25,7 +25,7 @@ export const ReportWrapper = ({
       <div className="w-full flex flex-col sm:flex-row items-start justify-between gap-1">
         <div className="sm:w-[50%] min-w-[170px] ">
           {data.map((entry: any, idx: number) => (
-            <p
+            <div
               key={`entry-${idx}`}
               className="flex items-center gap-2 my-2.5 leading-[24px] capitalize w-full flex-wrap"
             >
@@ -33,7 +33,7 @@ export const ReportWrapper = ({
               {entry?.[targetLabel]}{" "}
               <span className="font-customMed">{entry?.percent}%</span>{" "}
               <ColorBg colorBg={COLORS[idx]} />
-            </p>
+            </div>
           ))}
         </div>
 

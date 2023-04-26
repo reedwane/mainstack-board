@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { ReactSVG as SVG } from "react-svg";
 import styled from "styled-components";
 
@@ -15,11 +16,19 @@ export const NavLink: React.FC<NavLinkProps> = ({
   icon,
   active,
 }) => {
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    setIsActive(active === label);
+  }, []);
+
   return (
-    <LinkWrapper active={active === label}>
-      <Link href={url} className={`flex items-center gap-4 font-customMed`}>
-        <SVG src={icon} /> {label}
-      </Link>
+    <LinkWrapper
+      active={isActive}
+      className={`flex items-center gap-4 font-customMed`}
+    >
+      <img src={icon} />
+      <Link href={url}>{label}</Link>
     </LinkWrapper>
   );
 };

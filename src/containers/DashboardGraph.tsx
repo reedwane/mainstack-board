@@ -25,7 +25,7 @@ const DashboardGraph: React.FunctionComponent<IDashboardGraphProps> = ({
     <div className="flex flex-col gap-6 pt-[32px] pb-[22px] px-6">
       <PageViews data={processedData} />
 
-      <div className="flex gap-[2%] flex-wrap">
+      <div className="flex justify-between gap-4 flex-wrap">
         <ReportWrapper>
           <TopLocations
             data={top_locations.sort((a: any, b: any) => b?.count - a?.count)}
@@ -51,9 +51,9 @@ const ReportWrapper = styled.div`
     flex: 1;
   }
 
-  @media screen and (min-width: 1200px) {
+  /* @media screen and (min-width: 1200px) {
     max-width: 48%;
-  }
+  } */
 `;
 
 export default DashboardGraph;

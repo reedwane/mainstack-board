@@ -27,38 +27,36 @@ const TopSources: React.FunctionComponent<ITopSourcesProps> = ({ data }) => {
         targetLabel="source"
         data={data}
       >
-        <ResponsiveContainer height={160} width={160}>
-          <PieChart width={160} height={160}>
-            <Tooltip
-              formatter={(value, name, props) => {
-                return [props.payload.source, value];
-              }}
-              label={() => {
-                if (activeIndex !== null) {
-                  return data[activeIndex].source;
-                }
-                return null;
-              }}
-            />
-            <Pie
-              data={data}
-              innerRadius={50}
-              outerRadius={80}
-              fill="#FF5403"
-              stroke="none"
-              dataKey="count"
-              activeIndex={activeIndex!}
-              onMouseEnter={(data, index) => setActiveIndex(index)}
-            >
-              {data.map((entry: any, index: number) => (
-                <Cell
-                  key={`cell-${index}`}
-                  fill={COLORS[index % COLORS.length]}
-                />
-              ))}
-            </Pie>
-          </PieChart>
-        </ResponsiveContainer>
+        <PieChart width={160} height={160}>
+          <Tooltip
+            formatter={(value, name, props) => {
+              return [props.payload.source, value];
+            }}
+            label={() => {
+              if (activeIndex !== null) {
+                return data[activeIndex].source;
+              }
+              return null;
+            }}
+          />
+          <Pie
+            data={data}
+            innerRadius={50}
+            outerRadius={80}
+            fill="#FF5403"
+            stroke="none"
+            dataKey="count"
+            activeIndex={activeIndex!}
+            onMouseEnter={(data, index) => setActiveIndex(index)}
+          >
+            {data.map((entry: any, index: number) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={COLORS[index % COLORS.length]}
+              />
+            ))}
+          </Pie>
+        </PieChart>
       </ReportWrapper>
     </>
   );

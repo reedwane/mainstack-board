@@ -9,7 +9,7 @@ interface ISideNavProps {
 }
 
 const SideNav: React.FunctionComponent<ISideNavProps> = ({ styles }) => {
-  const [active, setActive] = useState<string>(navConfig[0].links[0].label);
+  const [active, setActive] = useState<string>("Dashboard");
 
   return (
     <nav

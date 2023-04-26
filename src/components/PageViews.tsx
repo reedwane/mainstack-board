@@ -72,7 +72,7 @@ const PageViews: React.FunctionComponent<IPageViewsProps> = ({ data }) => {
   ];
 
   return (
-    <section className="">
+    <div>
       <div className="flex items-center gap-3 mt-6 flex-wrap">
         {options.map((option: string, idx: number) => (
           <OptionButton
@@ -143,7 +143,7 @@ const PageViews: React.FunctionComponent<IPageViewsProps> = ({ data }) => {
           </AreaChart>
         </ResponsiveContainer>
       </div>
-    </section>
+    </div>
   );
 };
 

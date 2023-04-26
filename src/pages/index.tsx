@@ -10,17 +10,17 @@ export const getData = async () => {
   return data;
 };
 
-// export async function getStaticProps() {
-//   const queryClient = new QueryClient();
+export async function getStaticProps() {
+  const queryClient = new QueryClient();
 
-//   await queryClient.prefetchQuery(["data"], getData);
+  await queryClient.prefetchQuery(["data"], getData);
 
-//   return {
-//     props: {
-//       dehydratedState: dehydrate(queryClient),
-//     },
-//   };
-// }
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    },
+  };
+}
 
 export default function Home() {
   const { data, isLoading, isError } = useQuery({
@@ -46,12 +46,20 @@ export default function Home() {
       </div>
 
       {isLoading ? (
-        "Loading..."
+        <StyledPlaceholder>Loading...</StyledPlaceholder>
       ) : isError ? (
-        "Unable to fetch data"
+        <StyledPlaceholder>Unable to fetch data</StyledPlaceholder>
       ) : (
         <DashboardGraph data={data} />
       )}
     </div>
   );
 }
+
+const StyledPlaceholder = ({ children }: any) => {
+  return (
+    <div className="w-full aspect-video flex items-center justify-center font-customMed text-[18px]">
+      {children}
+    </div>
+  );
+};

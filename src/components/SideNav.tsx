@@ -13,7 +13,7 @@ const SideNav: React.FunctionComponent<ISideNavProps> = ({ styles }) => {
 
   return (
     <nav
-      className={`flex flex-col px-[60.74px] py-[38.75px] gap-[50.7px] overflow-y-auto`}
+      className={`flex flex-col p-8 gap-6 xl:px-[60.74px] xl:py-[38.75px] xl:gap-[50.7px] overflow-y-auto`}
     >
       <div className="relative w-[40px] h-[40px]">
         <Image src={"/mainstack-logo.png"} fill alt="mainstack-logo" />
